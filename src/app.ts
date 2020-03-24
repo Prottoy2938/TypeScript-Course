@@ -30,19 +30,22 @@
 
 // console.log(data);
 
-interface Loose {
-  [key: string]: string | number;
-}
+//
 
-enum Role {
-  AUTHOR = 54,
-  ADMIN,
-  READ_ONLY
+function combine(
+  num1: number | string,
+  num2: number | string,
+  resultConversation: "as-number" | "as-string"
+) {
+  if (
+    (typeof num1 === "number" && typeof num2 === "number") ||
+    resultConversation === "as-number"
+  ) {
+    return +num1 + +num2;
+  } else {
+    return num1.toString() + num2.toString();
+  }
 }
-
-const person: Loose = {
-  name: "Prottay Rudra",
-  treeLeaves: "Green",
-  data: Role.AUTHOR
-};
-if (Role.ADMIN === 55) console.log(Role.ADMIN);
+console.log(combine("1", "4", "as-number"));
+console.log(combine(1, 4, "as-number"));
+console.log(combine("Hello ", "World", "as-string"));

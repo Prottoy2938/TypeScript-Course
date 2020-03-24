@@ -13,3 +13,10 @@ h1 {
   width: fit-content;
   margin: 0 auto;
 }
+
+::selection {
+  background: #34ccf1; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #34ccf1; /* Gecko Browsers */
+}
