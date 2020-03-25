@@ -1,20 +1,14 @@
-type Combinable = number | string;
-type ConversionDescriptor = "as-number" | "as-string";
+const sum = (num1: number, num2: number): number => {
+  return num1 + num2;
+};
 
-function combine(
-  num1: Combinable,
-  num2: Combinable,
-  resultConversion: ConversionDescriptor
-) {
-  if (
-    (typeof num1 === "number" && typeof num2 === "number") ||
-    resultConversion === "as-number"
-  ) {
-    return +num1 + +num2;
-  } else {
-    return num1.toString() + num2.toString();
-  }
-}
-console.log(combine("1", "4", "as-number"));
-console.log(combine(1, 4, "as-number"));
-console.log(combine("Hello ", "World", "as-string"));
+const combine = (data: number): undefined => {
+  console.log("Result is" + data);
+  return;
+};
+// eslint-disable-next-line no-unused-vars
+const combine1 = (data: number): void => {
+  console.log("Result is" + data);
+  return;
+};
+console.log(combine(sum(2, 9)));
