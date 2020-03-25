@@ -1,12 +1,11 @@
-function combine(num1, num2, resultConversion) {
-    if ((typeof num1 === "number" && typeof num2 === "number") ||
-        resultConversion === "as-number") {
-        return +num1 + +num2;
-    }
-    else {
-        return num1.toString() + num2.toString();
-    }
+/* eslint-disable no-unused-vars */
+var sum = function (num1, num2) {
+    return num1 + num2;
+};
+function printResult(num) {
+    console.log("Result: ", num);
 }
-console.log(combine("1", "4", "as-number"));
-console.log(combine(1, 4, "as-number"));
-console.log(combine("Hello ", "World", "as-string"));
+printResult(sum(5, 12));
+var combineValues;
+combineValues = sum;
+console.log(combineValues(8, 8));
