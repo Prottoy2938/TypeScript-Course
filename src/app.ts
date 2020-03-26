@@ -1,13 +1,15 @@
-const addAndHandle = (
-  num1: number,
-  num2: number,
-  callback: (a: number) => void
-) => {
-  const result = num1 + num2;
-  callback(result);
-};
+/* eslint-disable no-unused-vars */
 
-addAndHandle(2, 3, number => {
-  console.log(number);
-  return 9;
-});
+let userInput: unknown;
+let anotherUserInput: any;
+
+userInput = "d";
+userInput = 91;
+anotherUserInput = "d";
+anotherUserInput = 91;
+
+let userValue = 20;
+let anotherUserValue = 20;
+
+userValue = userInput;
+anotherUserValue = anotherUserInput;
