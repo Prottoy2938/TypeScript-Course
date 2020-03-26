@@ -1,13 +1,13 @@
-/* eslint-disable no-unused-vars */
-const sum = (num1: number, num2: number): number => {
-  return num1 + num2;
+const addAndHandle = (
+  num1: number,
+  num2: number,
+  callback: (a: number) => void
+) => {
+  const result = num1 + num2;
+  callback(result);
 };
-function printResult(num: number): void {
-  console.log("Result: ", num);
-}
 
-printResult(sum(5, 12));
-
-let combineValues: (a: number, b: number) => number;
-combineValues = sum;
-console.log(combineValues(8, 8));
+addAndHandle(2, 3, number => {
+  console.log(number);
+  return 9;
+});
