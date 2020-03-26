@@ -1,15 +1,7 @@
 /* eslint-disable no-unused-vars */
 
-let userInput: unknown;
-let anotherUserInput: any;
+function generateErrors(message: string, code: number): never {
+  throw { message, errorCode: code };
+}
 
-userInput = "d";
-userInput = 91;
-anotherUserInput = "d";
-anotherUserInput = 91;
-
-let userValue = 20;
-let anotherUserValue = 20;
-
-userValue = userInput;
-anotherUserValue = anotherUserInput;
+generateErrors("please type a valid email", 500);
