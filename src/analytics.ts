@@ -1,2 +1,2 @@
-const msg = "Here lies the analytics for your project";
+const msg = "Here lies the analytics for your projects";
 console.log(msg);
