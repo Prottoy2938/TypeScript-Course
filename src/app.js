@@ -1,5 +1,6 @@
 "use strict";
 /* eslint-disable no-unused-vars */
-//use `tsc src/app.js --watch` to auto compile a file
-var data = "Space X";
-console.log(data);
+var button = document.querySelector("button");
+button.addEventListener("click", function () {
+    console.log("Button is clicked");
+});
