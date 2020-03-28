@@ -1,7 +1,5 @@
-/* eslint-disable no-unused-vars */
-
-function generateErrors(message: string, code: number): never {
-  throw { message, errorCode: code };
-}
-
-generateErrors("please type a valid email", 500);
+const button = document.querySelector("button")! as HTMLButtonElement;
+//hello world
+button.addEventListener("click", () => {
+  console.log("button is clicked");
+});

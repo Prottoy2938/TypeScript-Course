@@ -20,3 +20,16 @@ h1 {
 ::-moz-selection {
   background: #34ccf1; /* Gecko Browsers */
 }
+
+button {
+  padding: 10px;
+  border: 2px solid blueviolet;
+  background-color: blueviolet;
+  color: white;
+  margin-top: 300px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: rgb(149, 36, 255);
+  border: 2px solid rgb(149, 36, 255);
+}
