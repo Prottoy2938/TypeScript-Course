@@ -15,3 +15,4 @@ var test = "as"; //If we use `let`, typescript will automatically find the value
 test = "as";
 console.log(test);
 add(number1, number2, showResult, str);
+//# sourceMappingURL=basic-typescript.js.map
