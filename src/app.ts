@@ -1,9 +1,6 @@
 class DepartMent {
-  name: string;
   private employee: string[] = [];
-  constructor(n: string) {
-    this.name = n;
-  }
+  constructor(private name: string, public id: number) {}
   describe(this: DepartMent, age: number) {
     console.log("department is ", this.name, ". Age is ", age);
   }
@@ -16,11 +13,8 @@ class DepartMent {
   }
 }
 
-const myClass = new DepartMent("Science");
+const myClass = new DepartMent("Science", 45);
 
 myClass.addEmployee("Prottay");
 myClass.addEmployee("Rudra");
-//can't edit/modify `employee` outside of the class due to `private` keyword.
-//So we used a function which lives inside the object and modifies the `employee` array from there.
-myClass.employee[2] = "Arafat";
 myClass.getEmployeeInformation();

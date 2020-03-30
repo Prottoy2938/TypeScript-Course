@@ -1,8 +1,9 @@
 "use strict";
 class DepartMent {
-    constructor(n) {
+    constructor(name, id) {
+        this.name = name;
+        this.id = id;
         this.employee = [];
-        this.name = n;
     }
     describe(age) {
         console.log("department is ", this.name, ". Age is ", age);
@@ -15,9 +16,8 @@ class DepartMent {
         console.log(this.employee);
     }
 }
-const myClass = new DepartMent("Science");
+const myClass = new DepartMent("Science", 45);
 myClass.addEmployee("Prottay");
 myClass.addEmployee("Rudra");
-myClass.employee[2] = "Arafat";
 myClass.getEmployeeInformation();
 //# sourceMappingURL=app.js.map
