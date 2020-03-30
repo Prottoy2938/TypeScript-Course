@@ -14,7 +14,6 @@ class DepartMent {
 }
 
 const myClass = new DepartMent("Science", 45);
-
 myClass.addEmployee("Prottay");
 myClass.addEmployee("Rudra");
 myClass.getEmployeeInformation();

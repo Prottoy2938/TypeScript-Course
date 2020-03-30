@@ -1,22 +1,23 @@
 "use strict";
-class DepartMent {
-    constructor(name, id) {
+var DepartMent = (function () {
+    function DepartMent(name, id) {
         this.name = name;
         this.id = id;
         this.employee = [];
     }
-    describe(age) {
+    DepartMent.prototype.describe = function (age) {
         console.log("department is ", this.name, ". Age is ", age);
-    }
-    addEmployee(name) {
+    };
+    DepartMent.prototype.addEmployee = function (name) {
         this.employee.push(name);
-    }
-    getEmployeeInformation() {
+    };
+    DepartMent.prototype.getEmployeeInformation = function () {
         console.log(this.employee.length);
         console.log(this.employee);
-    }
-}
-const myClass = new DepartMent("Science", 45);
+    };
+    return DepartMent;
+}());
+var myClass = new DepartMent("Science", 45);
 myClass.addEmployee("Prottay");
 myClass.addEmployee("Rudra");
 myClass.getEmployeeInformation();
