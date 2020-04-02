@@ -1,7 +1,9 @@
 class DepartMent {
-  //added `protected` instead of `private`. `protected` allows us to edit the property in the classes that extends this class
+  static data: string = "name";
   protected employee: string[] = [];
-  constructor(private name: string, public id: number) {}
+  constructor(private readonly name: string, public id: number) {
+    console.log(DepartMent.data);
+  }
   describe(this: DepartMent) {
     console.log("department is ", this.name);
   }
@@ -11,6 +13,9 @@ class DepartMent {
   getEmployeeInformation(): void {
     console.log(this.employee.length);
     console.log(this.employee);
+  }
+  static createEmployee(name: string) {
+    return { name };
   }
 }
 
@@ -23,6 +28,12 @@ class itDepartment extends DepartMent {
 class AccountingDepartment extends DepartMent {
   constructor(id: number, private reports: string[]) {
     super("Accounting", id);
+  }
+  get getRecentReport() {
+    if (!this.reports) {
+      throw new Error("No last report found");
+    }
+    return this.reports;
   }
   addReports(r: string) {
     this.reports.push(r);
@@ -40,12 +51,7 @@ const accountingDepartment = new AccountingDepartment(3, [
   "Everything looks okay"
 ]);
 
-it.describe();
-it.addEmployee("Prottay");
-it.addEmployee("Rudra");
-it.getEmployeeInformation();
-console.log(it);
-console.log(accountingDepartment);
+console.log(itDepartment.createEmployee("Max"));
 accountingDepartment.addReports("Wifi is so slow");
 accountingDepartment.printReports();
 accountingDepartment.addEmployee("Max");

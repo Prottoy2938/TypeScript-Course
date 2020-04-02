@@ -17,6 +17,7 @@ var DepartMent = (function () {
         this.name = name;
         this.id = id;
         this.employee = [];
+        console.log(DepartMent.data);
     }
     DepartMent.prototype.describe = function () {
         console.log("department is ", this.name);
@@ -28,6 +29,10 @@ var DepartMent = (function () {
         console.log(this.employee.length);
         console.log(this.employee);
     };
+    DepartMent.createEmployee = function (name) {
+        return { name: name };
+    };
+    DepartMent.data = "name";
     return DepartMent;
 }());
 var itDepartment = (function (_super) {
@@ -46,6 +51,16 @@ var AccountingDepartment = (function (_super) {
         _this.reports = reports;
         return _this;
     }
+    Object.defineProperty(AccountingDepartment.prototype, "getRecentReport", {
+        get: function () {
+            if (!this.reports) {
+                throw new Error("No last report found");
+            }
+            return this.reports;
+        },
+        enumerable: true,
+        configurable: true
+    });
     AccountingDepartment.prototype.addReports = function (r) {
         this.reports.push(r);
     };
@@ -63,12 +78,7 @@ var it = new itDepartment(45, ["hello"]);
 var accountingDepartment = new AccountingDepartment(3, [
     "Everything looks okay"
 ]);
-it.describe();
-it.addEmployee("Prottay");
-it.addEmployee("Rudra");
-it.getEmployeeInformation();
-console.log(it);
-console.log(accountingDepartment);
+console.log(itDepartment.createEmployee("Max"));
 accountingDepartment.addReports("Wifi is so slow");
 accountingDepartment.printReports();
 accountingDepartment.addEmployee("Max");
