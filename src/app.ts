@@ -1,5 +1,6 @@
 class DepartMent {
-  private employee: string[] = [];
+  //added `protected` instead of `private`. `protected` allows us to edit the property in the classes that extends this class
+  protected employee: string[] = [];
   constructor(private name: string, public id: number) {}
   describe(this: DepartMent) {
     console.log("department is ", this.name);
@@ -29,11 +30,16 @@ class AccountingDepartment extends DepartMent {
   printReports() {
     console.log(this.reports);
   }
+  addEmployee(name: string) {
+    if (name === "Max") return;
+    this.employee.push(name);
+  }
 }
 const it = new itDepartment(45, ["hello"]);
 const accountingDepartment = new AccountingDepartment(3, [
   "Everything looks okay"
 ]);
+
 it.describe();
 it.addEmployee("Prottay");
 it.addEmployee("Rudra");
@@ -42,3 +48,6 @@ console.log(it);
 console.log(accountingDepartment);
 accountingDepartment.addReports("Wifi is so slow");
 accountingDepartment.printReports();
+accountingDepartment.addEmployee("Max");
+accountingDepartment.addEmployee("Prottay");
+accountingDepartment.getEmployeeInformation();

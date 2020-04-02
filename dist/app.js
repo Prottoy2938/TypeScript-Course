@@ -52,6 +52,11 @@ var AccountingDepartment = (function (_super) {
     AccountingDepartment.prototype.printReports = function () {
         console.log(this.reports);
     };
+    AccountingDepartment.prototype.addEmployee = function (name) {
+        if (name === "Max")
+            return;
+        this.employee.push(name);
+    };
     return AccountingDepartment;
 }(DepartMent));
 var it = new itDepartment(45, ["hello"]);
@@ -66,4 +71,7 @@ console.log(it);
 console.log(accountingDepartment);
 accountingDepartment.addReports("Wifi is so slow");
 accountingDepartment.printReports();
+accountingDepartment.addEmployee("Max");
+accountingDepartment.addEmployee("Prottay");
+accountingDepartment.getEmployeeInformation();
 //# sourceMappingURL=app.js.map
