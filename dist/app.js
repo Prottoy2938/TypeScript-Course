@@ -19,9 +19,6 @@ var DepartMent = (function () {
         this.employee = [];
         console.log(DepartMent.data);
     }
-    DepartMent.prototype.describe = function () {
-        console.log("department is ", this.name);
-    };
     DepartMent.prototype.addEmployee = function (name) {
         this.employee.push(name);
     };
@@ -38,10 +35,13 @@ var DepartMent = (function () {
 var itDepartment = (function (_super) {
     __extends(itDepartment, _super);
     function itDepartment(id, admins) {
-        var _this = _super.call(this, "it", id) || this;
+        var _this = _super.call(this, "IT", id) || this;
         _this.admins = admins;
         return _this;
     }
+    itDepartment.prototype.describe = function () {
+        console.log("Department is", this.name);
+    };
     return itDepartment;
 }(DepartMent));
 var AccountingDepartment = (function (_super) {
@@ -72,11 +72,14 @@ var AccountingDepartment = (function (_super) {
             return;
         this.employee.push(name);
     };
+    AccountingDepartment.prototype.describe = function () {
+        console.log("Department is", this.name);
+    };
     return AccountingDepartment;
 }(DepartMent));
 var it = new itDepartment(45, ["hello"]);
-var accountingDepartment = new AccountingDepartment(3, [
-    "Everything looks okay"
+var accountingDepartment = new AccountingDepartment(98, [
+    "Everything looks okay",
 ]);
 console.log(itDepartment.createEmployee("Max"));
 accountingDepartment.addReports("Wifi is so slow");
@@ -84,4 +87,5 @@ accountingDepartment.printReports();
 accountingDepartment.addEmployee("Max");
 accountingDepartment.addEmployee("Prottay");
 accountingDepartment.getEmployeeInformation();
+accountingDepartment.describe();
 //# sourceMappingURL=app.js.map

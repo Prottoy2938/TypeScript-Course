@@ -1,12 +1,10 @@
-class DepartMent {
+abstract class DepartMent {
   static data: string = "name";
   protected employee: string[] = [];
-  constructor(private readonly name: string, public id: number) {
+  constructor(protected readonly name: string, private id: number) {
     console.log(DepartMent.data);
   }
-  describe(this: DepartMent) {
-    console.log("department is ", this.name);
-  }
+  abstract describe(this: DepartMent): void;
   addEmployee(name: string): void {
     this.employee.push(name);
   }
@@ -21,7 +19,10 @@ class DepartMent {
 
 class itDepartment extends DepartMent {
   constructor(id: number, public admins: string[]) {
-    super("it", id);
+    super("IT", id);
+  }
+  describe() {
+    console.log("Department is", this.name);
   }
 }
 
@@ -45,10 +46,13 @@ class AccountingDepartment extends DepartMent {
     if (name === "Max") return;
     this.employee.push(name);
   }
+  describe() {
+    console.log("Department is", this.name);
+  }
 }
 const it = new itDepartment(45, ["hello"]);
-const accountingDepartment = new AccountingDepartment(3, [
-  "Everything looks okay"
+const accountingDepartment = new AccountingDepartment(98, [
+  "Everything looks okay",
 ]);
 
 console.log(itDepartment.createEmployee("Max"));
@@ -57,3 +61,4 @@ accountingDepartment.printReports();
 accountingDepartment.addEmployee("Max");
 accountingDepartment.addEmployee("Prottay");
 accountingDepartment.getEmployeeInformation();
+accountingDepartment.describe();
