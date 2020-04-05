@@ -75,17 +75,21 @@ var AccountingDepartment = (function (_super) {
     AccountingDepartment.prototype.describe = function () {
         console.log("Department is", this.name);
     };
+    AccountingDepartment.getInstance = function () {
+        if (AccountingDepartment.instance) {
+            return AccountingDepartment.instance;
+        }
+        else {
+            AccountingDepartment.instance = new AccountingDepartment(21, []);
+            return AccountingDepartment.instance;
+        }
+    };
     return AccountingDepartment;
 }(DepartMent));
 var it = new itDepartment(45, ["hello"]);
-var accountingDepartment = new AccountingDepartment(98, [
-    "Everything looks okay",
-]);
-console.log(itDepartment.createEmployee("Max"));
-accountingDepartment.addReports("Wifi is so slow");
-accountingDepartment.printReports();
-accountingDepartment.addEmployee("Max");
-accountingDepartment.addEmployee("Prottay");
-accountingDepartment.getEmployeeInformation();
-accountingDepartment.describe();
+var accountingDepartment = AccountingDepartment.getInstance();
+accountingDepartment.addReports("Hi there");
+var accountingDepartment1 = AccountingDepartment.getInstance();
+console.log(accountingDepartment);
+console.log(accountingDepartment1);
 //# sourceMappingURL=app.js.map
